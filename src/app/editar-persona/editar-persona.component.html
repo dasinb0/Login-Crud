@@ -1,0 +1,40 @@
+<form
+  [formGroup]="personaForm"
+  (ngSubmit)="guardarCambios()"
+  class="persona-form"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" placeholder="Nombre" />
+    <mat-error *ngIf="personaForm.get('nombre')?.invalid"
+      >El nombre es requerido</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Apellido</mat-label>
+    <input matInput formControlName="apellido" placeholder="Apellido" />
+    <mat-error *ngIf="personaForm.get('apellido')?.invalid"
+      >El apellido es requerido</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Edad</mat-label>
+    <input matInput formControlName="edad" type="number" placeholder="Edad" />
+    <mat-error *ngIf="personaForm.get('edad')?.invalid"
+      >La edad es requerida y debe ser un número mayor o igual a 0</mat-error
+    >
+  </mat-form-field>
+  <!-- Boton guardar -->
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="personaForm.invalid"
+  >
+    Guardar Cambios
+  </button>
+  <!-- Boton volver -->
+  <button mat-raised-button color="primary" (click)="volverAListaPersonas()">
+    Volver a la lista de personas
+  </button>
+</form>

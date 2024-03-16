@@ -1,0 +1,21 @@
+button.mat-raised-button {
+  margin-right: 5px;
+  color: white;
+  background-color: #d50000;
+  border: 2px solid #d50000;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+button.mat-raised-button:hover {
+  background-color: #4b6177;
+  border-color: #4b6177;
+}
+
+button.mat-raised-button:disabled {
+  background-color: #CCCCCC;
+  color: #999999;
+  border-color: #CCCCCC;
+  cursor: not-allowed;
+}

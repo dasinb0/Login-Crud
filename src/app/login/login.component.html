@@ -1,0 +1,58 @@
+<form (ngSubmit)="login()" #loginForm="ngForm" class="login-form">
+  <mat-card class="login-card">
+    <mat-card-header>
+      <mat-card-title>Iniciar Sesión</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="input-container">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Usuario</mat-label>
+          <input
+            matInput
+            placeholder="Usuario"
+            name="usuario"
+            [(ngModel)]="usuario"
+            required
+          />
+          <mat-error
+            *ngIf="
+              loginForm.controls['usuario'].invalid &&
+              (loginForm.controls['usuario'].dirty ||
+                loginForm.controls['usuario'].touched)
+            "
+          >
+            Usuario es requerido
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="input-container">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Contraseña</mat-label>
+          <input
+            matInput
+            type="password"
+            placeholder="Contraseña"
+            name="contraseña"
+            [(ngModel)]="password"
+            required
+          />
+          <mat-error
+            *ngIf="
+              loginForm.controls['contraseña'].invalid &&
+              (loginForm.controls['contraseña'].dirty ||
+                loginForm.controls['contraseña'].touched)
+            "
+          >
+            Contraseña es requerida
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="primary" type="submit">
+        Iniciar Sesión
+      </button>
+      <div *ngIf="showError" class="error-message">
+        Credenciales inválidas. Inténtalo de nuevo.
+      </div>
+    </mat-card-content>
+  </mat-card>
+</form>

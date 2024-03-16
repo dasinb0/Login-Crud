@@ -1,0 +1,68 @@
+<button mat-button color="warn" (click)="logout()" class="logout-button">
+  Cerrar sesión
+</button>
+
+<h1>Lista de Personas</h1>
+<form
+  [formGroup]="personaForm"
+  (ngSubmit)="agregarPersona()"
+  class="persona-form"
+>
+  <mat-form-field appearance="fill">
+    <mat-label>Nombre</mat-label>
+    <input matInput formControlName="nombre" placeholder="Nombre" />
+    <mat-error *ngIf="personaForm.get('nombre')?.invalid"
+      >El nombre es requerido</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Apellido</mat-label>
+    <input matInput formControlName="apellido" placeholder="Apellido" />
+    <mat-error *ngIf="personaForm.get('apellido')?.invalid"
+      >El apellido es requerido</mat-error
+    >
+  </mat-form-field>
+  <mat-form-field appearance="fill">
+    <mat-label>Edad</mat-label>
+    <input matInput formControlName="edad" type="number" placeholder="Edad" />
+    <mat-error *ngIf="personaForm.get('edad')?.invalid"
+      >La edad es requerida y debe ser un número mayor o igual a 0</mat-error
+    >
+  </mat-form-field>
+  <button
+    mat-raised-button
+    color="primary"
+    type="submit"
+    [disabled]="personaForm.invalid"
+  >
+    Agregar Persona
+  </button>
+</form>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Nombre</th>
+      <th>Apellido</th>
+      <th>Edad</th>
+      <th>Acciones</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let persona of personas">
+      <td>{{ persona.id }}</td>
+      <td>{{ persona.nombre }}</td>
+      <td>{{ persona.apellido }}</td>
+      <td>{{ persona.edad }}</td>
+      <td>
+        <mat-icon color="primary" (click)="editarPersona(persona.id)"
+          >edit</mat-icon
+        >
+        <mat-icon color="warn" (click)="eliminarPersona(persona.id)"
+          >delete</mat-icon
+        >
+      </td>
+    </tr>
+  </tbody>
+</table>

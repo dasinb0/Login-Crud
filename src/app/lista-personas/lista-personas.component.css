@@ -1,0 +1,54 @@
+.persona-form {
+  margin-bottom: 20px;
+}
+
+.mat-form-field {
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  text-align: left;
+}
+
+/* Estilos para los botones */
+button {
+  margin-right: 5px;
+}
+
+.logout-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  color: white;
+  background-color: #d50000;
+  border: 2px solid #d50000;
+  border-radius: 20px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.logout-button:hover {
+  background-color: #4b6177;
+  border-color: #4b6177;
+}
+
+/* Estilos para los iconos de editar y eliminar */
+.mat-icon {
+  cursor: pointer;
+}
+
+.mat-icon:hover {
+  color: #4b6177;
+}
